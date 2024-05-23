@@ -8,10 +8,14 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Geek Factory Project</title>
 	<link rel="stylesheet" href="./css/intro-style.css">
+	<!--   integrity="sha256-sKY1vTh5emCVeKVj6CkdS0ScT8N0leFRRIllcy3EjNU=" //problemi di compatibilità ma soluzione corretta
+            crossorigin="anonymous"-->
 	<link rel="icon" href="./img/icon.png">
 	
-	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-</head>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+           <!--   integrity="sha256-sKY1vTh5emCVeKVj6CkdS0ScT8N0leFRRIllcy3EjNU=" //problemi di compatibilità ma soluzione corretta
+            crossorigin="anonymous"-->
+  </head>
 <body>
 
 	<div class="welcome-section content-hidden">
