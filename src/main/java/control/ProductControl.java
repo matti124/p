@@ -38,21 +38,27 @@ public class ProductControl extends HttpServlet {
 			throws ServletException, IOException {
 
 		if (request.getParameter("action") != null && request.getParameter("action").compareTo("dettaglio") == 0) {
-			String codiceStr = request.getParameter("codice");
-			int codice = Integer.parseInt(codiceStr);
-			
-			ProductModel model = new ProductModel();
-			try {
-				ProductBean prodotto = model.doRetrieveByKey(codice);
-				request.setAttribute("prodottoDettaglio", prodotto);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			finally {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productDetail.jsp");
-				dispatcher.forward(request, response);
-			}
+		    String codiceStr = request.getParameter("codice");
+		    
+		    if (codiceStr != null && !codiceStr.isEmpty()) {
+		        int codice = Integer.parseInt(codiceStr);
+		        
+		        ProductModel model = new ProductModel();
+		        
+		        try {
+		            ProductBean prodotto = model.doRetrieveByKey(codice);
+		            request.setAttribute("prodottoDettaglio", prodotto);
+		        } catch (SQLException e) {
+		            e.printStackTrace(); 
+		        } finally {
+		            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productDetail.jsp");
+		            dispatcher.forward(request, response);
+		        }
+		    } else {
+		        response.sendRedirect("/Errorpage.html");
+		    }
 		}
+
 		else if (request.getParameter("action") != null && request.getParameter("action").compareTo("elimina") == 0) {
 			@SuppressWarnings("unchecked")
 			Collection<ProductBean> lista = (Collection<ProductBean>) request.getSession().getAttribute("products");
