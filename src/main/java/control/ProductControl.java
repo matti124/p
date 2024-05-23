@@ -83,7 +83,7 @@ public class ProductControl extends HttpServlet {
 				e.printStackTrace();
 			}
 			finally {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/modifica-prodotto.jsp"); 
+				RequestDispatcher dispatcher =  getServletContext().getRequestDispatcher("/modifica-prodotto.jsp"); 
 				dispatcher.forward(request, response);
 			}
 		}
