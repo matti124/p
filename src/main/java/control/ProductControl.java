@@ -84,7 +84,7 @@ public class ProductControl extends HttpServlet {
 			}
 			finally {
 				RequestDispatcher dispatcher =  getServletContext().getRequestDispatcher("/modifica-prodotto.jsp"); 
-				dispatcher.forward(request, response);
+				dispatcher.forward(request, response );
 			}
 		}
 		else if (request.getParameter("action") != null && request.getParameter("action").compareTo("modifica") == 0) {
